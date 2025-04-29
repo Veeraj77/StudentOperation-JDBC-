@@ -51,3 +51,7 @@ public class Main {
                     boolean updated = operations.updateStudent(new Student(name, prn, branch, batch, cgpa));
                     System.out.println(updated ? "Updated successfully." : "Student not found.");
                 }
+                case 5 -> {
+                    System.out.print("Enter PRN to delete: ");
+                    int prn = scan.nextInt();
+                    System.out.println(operations.deleteStudent(prn) ? "Deleted successfully." : "Student not found.");
