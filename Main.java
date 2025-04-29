@@ -15,3 +15,17 @@ public class Main {
             scan.nextLine();
 
             switch (choice) {
+                case 1 -> {
+                    System.out.print("Enter Name: ");
+                    String name = scan.nextLine();
+                    System.out.print("Enter PRN: ");
+                    int prn = scan.nextInt();
+                    scan.nextLine();
+                    System.out.print("Enter Branch: ");
+                    String branch = scan.nextLine();
+                    System.out.print("Enter Batch: ");
+                    String batch = scan.nextLine();
+                    System.out.print("Enter CGPA: ");
+                    float cgpa = scan.nextFloat();
+                    operations.addStudent(new Student(name, prn, branch, batch, cgpa));
+                }
