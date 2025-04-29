@@ -56,3 +56,16 @@ public class StudentDAO {
         }
         return false;
     }
+
+    // Delete student
+    public boolean deleteStudent(int prn) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement("DELETE FROM students WHERE prn = ?")) {
+            ps.setInt(1, prn);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("Error deleting student: " + e.getMessage());
+        }
+        return false;
+    }
+}
