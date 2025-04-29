@@ -29,3 +29,4 @@ public class Main {
                     float cgpa = scan.nextFloat();
                     operations.addStudent(new Student(name, prn, branch, batch, cgpa));
                 }
+                case 2 -> operations.displayStudents();
