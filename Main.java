@@ -55,3 +55,11 @@ public class Main {
                     System.out.print("Enter PRN to delete: ");
                     int prn = scan.nextInt();
                     System.out.println(operations.deleteStudent(prn) ? "Deleted successfully." : "Student not found.");
+                }
+                case 6 -> System.out.println("Exiting...");
+                default -> System.out.println("Invalid choice.");
+            }
+
+        } while (choice != 6);
+    }
+}
