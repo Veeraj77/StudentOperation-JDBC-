@@ -14,3 +14,4 @@ public class Main {
             choice = scan.nextInt();
             scan.nextLine();
 
+            switch (choice) {
