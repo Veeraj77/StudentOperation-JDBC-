@@ -40,3 +40,19 @@ public class StudentDAO {
         }
         return list;
     }
+
+    // Update student
+    public boolean updateStudent(Student student) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement("UPDATE students SET name=?, branch=?, batch=?, cgpa=? WHERE prn=?")) {
+            ps.setString(1, student.getName());
+            ps.setString(2, student.getBranch());
+            ps.setString(3, student.getBatch());
+            ps.setFloat(4, student.getCGPA());
+            ps.setInt(5, student.getPRN());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("Error updating student: " + e.getMessage());
+        }
+        return false;
+    }
