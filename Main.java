@@ -30,3 +30,10 @@ public class Main {
                     operations.addStudent(new Student(name, prn, branch, batch, cgpa));
                 }
                 case 2 -> operations.displayStudents();
+                case 3 -> {
+                    System.out.print("Enter PRN: ");
+                    int prn = scan.nextInt();
+                    Student s = operations.searchByPRN(prn);
+                    if (s != null) s.display();
+                    else System.out.println("Student not found.");
+                }
