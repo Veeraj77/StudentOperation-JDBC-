@@ -41,6 +41,21 @@ public class StudentDAO {
         return list;
     }
 
+    // Search by PRN
+    public Student searchByPRN(int prn) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM students WHERE prn = ?")) {
+            ps.setInt(1, prn);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Student(rs.getString("name"), prn, rs.getString("branch"), rs.getString("batch"), rs.getFloat("cgpa"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error searching by PRN: " + e.getMessage());
+        }
+        return null;
+    }
+
     // Update student
     public boolean updateStudent(Student student) {
         try (Connection conn = DBConnection.getConnection();
